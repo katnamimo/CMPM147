@@ -1,34 +1,37 @@
-// project.js - purpose and description here
-// Author: Your Name
-// Date:
+const fillers = {
+  compliment: ["you slayed", "you ate", "whats 4 + 4?", "can we date", "i wanna marry u", "love the fit", "served", "you are ethreal", "actually glowing"],
+  nickname: ["girl", "GIRL", "BITCH", "bitch", "hoe", "HOE", "wifey", "bae", "babe"],
+  emoji: ["❤️‍", "🥰","😍","🤩","😘","😜","😋","😝","💕","💞","💯","🙈",".😏","💝","🧡","💛","💚","💙","💜","🤎","🖤","👌","👅"],
+};
 
-// NOTE: This is how we might start a basic JavaaScript OOP project
+const template = `$nickname $compliment $emoji
+`;
 
-// Constants - User-servicable parts
-// In a longer project I like to put these in a separate file
 
-// define a class
-class MyProjectClass {
-  // constructor function
-  constructor(param1, param2) {
-    // set properties using 'this' keyword
-    this.property1 = param1;
-    this.property2 = param2;
-  }
-  
-  // define a method
-  myMethod() {
-    // code to run when method is called
+// STUDENTS: You don't need to edit code below this line.
+
+const slotPattern = /\$(\w+)/;
+
+function replacer(match, name) {
+  let options = fillers[name];
+  if (options) {
+    return options[Math.floor(Math.random() * options.length)];
+  } else {
+    return `<UNKNOWN:${name}>`;
   }
 }
 
-function main() {
-  // create an instance of the class
-  let myInstance = new MyProjectClass("value1", "value2");
+function generate() {
+  let story = template;
+  while (story.match(slotPattern)) {
+    story = story.replace(slotPattern, replacer);
+  }
 
-  // call a method on the instance
-  myInstance.myMethod();
+  /* global box */
+  box.innerText = story;
 }
 
-// let's get this party started - uncomment me
-//main();
+/* global clicker */
+clicker.onclick = generate;
+
+generate();
