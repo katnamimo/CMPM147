@@ -1,14 +1,14 @@
 let seed = 239;
-let cloudSpeed = 0.5; // Adjust the speed of cloud drift
+let cloudSpeed = 0.5; 
 
 const skyColor = "#A0AFFF";
 const cloudColor = "#ffffff";
 const moonColor = "#f0f0f0";
 const starColor = "#ffffff";
-const numTwinklingStars = 100; // Number of twinkling stars
-const numPlusStars = 50; // Number of plus-shaped stars
+const numTwinklingStars = 100;
+const numPlusStars = 50; // 
 
-let shootingStars = []; // Array to store shooting stars
+let shootingStars = [];
 let button;
 
 function setup() {
@@ -16,7 +16,7 @@ function setup() {
   button = createButton("reimagine");
   button.mousePressed(() => {
     seed++;
-    shootingStars = []; // Clear the shootingStars array
+    shootingStars = []; 
   });
 }
 
@@ -35,7 +35,7 @@ function draw() {
     shootingStars[i].update();
     shootingStars[i].display();
     if (shootingStars[i].transparency <= 0) {
-      shootingStars.splice(i, 1); // Remove faded out shooting stars
+      shootingStars.splice(i, 1); 
     }
   }
 }
@@ -52,7 +52,7 @@ function drawMoon(x, y, size, phase) {
   fill(moonColor);
   ellipse(x, y, size);
 
-  // Draw moon craters or features based on phase
+  // Draw moon craters or features based on phase, this doesn't work though
   if (phase < PI) {
     // Draw craters on left side
     ellipse(x - size * 0.2, y - size * 0.1, size * 0.3);
@@ -70,7 +70,7 @@ function drawTwinklingStars(numStars) {
     let x = random(width);
     let y = random(height);
     let size = random(1, 3);
-    let opacity = random(150, 255); // Random opacity for twinkling effect
+    let opacity = random(150, 255); 
     fill(255, 255, 255, opacity);
     ellipse(x, y, size);
   }
@@ -82,9 +82,9 @@ function drawPlusStars(numStars) {
     let x = random(width);
     let y = random(height);
     let size = random(1, 3);
-    let opacity = random(50, 100); // Faint opacity
+    let opacity = random(50, 100); 
     fill(255, 255, 255, opacity);
-    // Draw plus shape
+  
     rect(x - size / 2, y - size / 10, size, size / 5);
     rect(x - size / 10, y - size / 2, size / 5, size);
   }
@@ -97,33 +97,31 @@ function drawClouds(numClouds) {
    
     let drift = (frameCount * cloudSpeed * 0.1) % width; // Adjust multiplier for speed and wrap around at canvas width
 
-    // Draw cloud top
+  
     fill(cloudColor);
-    ellipse((x + drift) % width, y, size); // Wrap around x-coordinate when drifting off the screen
+    ellipse((x + drift) % width, y, size); 
 
-    // Draw pink gradient underside of clouds from left to right
-    let pinkish = color(255, 192, 203); // Pinkish color
-    let white = color(255); // White color
+    let pinkish = color(255, 192, 203); 
+    let white = color(255); 
     let cloudBottomY = y + size / 5;
     let startX = (x - size / 2 + drift) % width; // Leftmost x-coordinate of the cloud
     let endX = (x + size / 2 + drift) % width; // Rightmost x-coordinate of the cloud
-    let step = (endX - startX) / 100; // Number of steps for gradient based on cloud width
+    let step = (endX - startX) / 100; 
     for (let tx = startX; tx <= endX; tx += step) {
       let gradient = map(tx, startX, endX, 0, 1);
-      let interColor = lerpColor(white, pinkish, gradient); // Interpolate between white and pinkish
+      let interColor = lerpColor(white, pinkish, gradient);
       fill(interColor);
-      ellipse(tx, cloudBottomY, size); // Draw ellipse at the bottom of the cloud
+      ellipse(tx, cloudBottomY, size); 
     }
 
-    // Additional ovals for variation
-    let numOvals = random(3, 6); // Random number of ovals
+    let numOvals = random(3, 6); 
     for (let j = 0; j < numOvals; j++) {
       let ovalX = random(x - size / 2, x + size / 2);
       let ovalY = random(y - size / 10, y + size / 5);
       let ovalSize = random(size * 0.4, size * 0.8);
       let ovalWidth = ovalSize * random(0.6, 1);
       let ovalHeight = ovalSize * random(0.5, 0.8);
-      ellipse((ovalX + drift) % width, ovalY, ovalWidth, ovalHeight); // Wrap around x-coordinate when drifting off the screen
+      ellipse((ovalX + drift) % width, ovalY, ovalWidth, ovalHeight);
     }
   }
 }
@@ -132,26 +130,25 @@ class ShootingStar {
     this.x = x;
     this.y = y;
     this.transparency = 255;
-    this.angle = random(TWO_PI); // Initial angle
-    this.rotationSpeed = 0.05; // Increase rotation speed
+    this.angle = random(TWO_PI); 
+    this.rotationSpeed = 0.05; 
   }
 
   update() {
-    this.angle += this.rotationSpeed; // Rotate the shooting star
+    this.angle += this.rotationSpeed; 
     if (this.angle > TWO_PI) {
-      this.angle -= TWO_PI; // Keep angle within range
+      this.angle -= TWO_PI; 
     }
-    this.transparency -= 2; // Fade out
+    this.transparency -= 2; 
   }
 
   display() {
     fill(255, 255, 255, this.transparency);
-    // Draw a star
-    push(); // Save the current drawing state
-    translate(this.x, this.y); // Move the origin to the shooting star's position
-    rotate(this.angle); // Rotate around the origin
-    star(0, 0, 3, 7, 5); // Use the star function
-    pop(); // Restore the previous drawing state
+    push(); 
+    translate(this.x, this.y);
+    rotate(this.angle);
+    star(0, 0, 3, 7, 5); 
+    pop();
   }
 }
 
@@ -172,6 +169,5 @@ function star(x, y, radius1, radius2, npoints) {
 }
 
 function mouseClicked() {
-  // When the mouse is clicked, create a new ShootingStar object
   shootingStars.push(new ShootingStar(mouseX, mouseY));
 }
