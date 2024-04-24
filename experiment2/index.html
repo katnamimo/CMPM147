@@ -41,7 +41,7 @@
 
     .small-text {
       color: pink;
-      font-size: 1 em;
+      font-size: 1em;
       font-family: "Varela Round", sans-serif;
       display: block;
       margin-left: 100px;
@@ -58,18 +58,21 @@
   <!-- Enclosed script in a box -->
   <div class="container">
     <div class="box">
-      <span class="small-text">click for a shooting star !</span>
+      <span class="small-text">I really enjoyed this experiment. There was a lot of free creative reign and many ways to approach different problems. I'm hoping to really be back on track and less stressed soon.
+      </span>
       <script src="js/script.js" defer></script>
     </div>
     <!-- Description box placed to the right -->
     <div class="box">
-      <span class="small-text">Relation to inspring image:
+      <p>Relation to inspiring image:</p>
 
-        - Color: The sky gradient and underside of clouds was picked with a dropper tool from the inspiration image with the website, "https://redketchup.io/color-picker"
-        - Primitives: The clouds are rendered with clusters of varying`ellipsis` primitives.
-        - Polygons: The background mountain is a single randomly polygon using `vertex` calls.
-        - Composition: Different random seed values lead to differently shaped mountains and differently positioned trees.
-        - Life: The position of trees is animated over time as if to simulate the view from a passing train and the slightly responds to the horizontal motion of the mouse cursor. !</span>
+      <ul>
+        <li><strong>Color:</strong> The sky gradient and underside of clouds were picked with a dropper tool from the inspiration image using the website <a href="https://redketchup.io/color-picker">https://redketchup.io/color-picker</a>.</li>
+        <li><strong>Primitives:</strong> The clouds are rendered with clusters of varying ellipsis, and the stars are drawn with rect() primitives.</li>
+        <li><strong>Polygons:</strong> The moon is drawn with beginShape() and endShape(), utilizing bezierVertex().</li>
+        <li><strong>Composition:</strong> Different random seed values lead to differently shaped clouds and star positions.</li>
+        <li><strong>Life:</strong> The clouds slowly drift and wrap across the scene to eliminate the need for constant generation of clouds. The screen may be clicked to spawn a 'shooting star'.</li>
+      </ul>
     </div>
   </div>
 
@@ -79,4 +82,3 @@
   </div>
 </body>
 </html>
-
