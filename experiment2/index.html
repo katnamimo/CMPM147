@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Living Impression</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+<head>
+  <title>Experiment 2 - Living Impression</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Living Impression</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
-      button {
-        background-color: pink;
-        color: white;
-        border: 2px solid lavender;
-        margin: 2px 2px;
-        transition-duration: 0.4s;
-        border-radius: 2px;
-        font-size: 2em;
-        font-family: "Varela Round", sans-serif;
-        margin-left: 100px;
-      }
+    /* Added CSS for box layout */
+    .container {
+      display: flex;
+    }
 
-      button:hover {
-        background-color: lavender;
-        color: white;
-      }
+    .box {
+      flex: 1;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid black;
+    }
 
-      .small-text {
-        color: pink;
-        font-size: 1 em;
-        font-family: "Varela Round", sans-serif;
-        display: block;
-        margin-left: 100px;
-      }
-    </style>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
-      integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/script.js" defer></script>
-  </head>
-  <body>
-    <span class="small-text">click for a shooting star !</span>
-    <script src="https://button.glitch.me/button.js" defer></script>
-  </body>
+    /* Original CSS */
+    button {
+      background-color: pink;
+      color: white;
+      border: 2px solid lavender;
+      margin: 2px 2px;
+      transition-duration: 0.4s;
+      border-radius: 2px;
+      font-size: 2em;
+      font-family: "Varela Round", sans-serif;
+      margin-left: 100px;
+    }
+
+    button:hover {
+      background-color: lavender;
+      color: white;
+    }
+
+    .small-text {
+      color: pink;
+      font-size: 1 em;
+      font-family: "Varela Round", sans-serif;
+      display: block;
+      margin-left: 100px;
+    }
+  </style>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+    integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Enclosed script in a box -->
+  <div class="container">
+    <div class="box">
+      <span class="small-text">click for a shooting star !</span>
+      <script src="https://button.glitch.me/button.js" defer></script>
+    </div>
+    <!-- Description box placed to the right -->
+    <div class="box">
+      <p>This script creates a button that generates a shooting star when clicked. Enjoy!</p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Image Placeholder</h2>
+    <img src="inspo.png" alt="Placeholder Image" />
+  </div>
+</body>
 </html>
