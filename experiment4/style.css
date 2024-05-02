@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+body {
+  font-family: 'Nova Round', helvetica, arial, sans-serif;
+  margin: 2em;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
